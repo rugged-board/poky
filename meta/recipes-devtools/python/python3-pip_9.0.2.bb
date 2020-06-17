@@ -20,7 +20,7 @@ do_install_prepend() {
 # Use setuptools site.py instead, avoid shared state issue
 do_install_append() {
     rm ${D}${PYTHON_SITEPACKAGES_DIR}/site.py
-    rm ${D}${PYTHON_SITEPACKAGES_DIR}/__pycache__/site.cpython-*.pyc
+#    rm ${D}${PYTHON_SITEPACKAGES_DIR}/__pycache__/site.cpython-*.pyc
 
     # Install as pip3 and leave pip2 as default
     rm ${D}/${bindir}/pip
