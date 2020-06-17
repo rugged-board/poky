@@ -1,5 +1,26 @@
 #!/bin/sh
 
+# to make data partition as read and write
+# and to change the some libraries path to data partition
+#
+
+file_data_lib_sh="/var/volatile/data_lib.sh"
+file_data_lib="/data/lib/libmraa.so.2.0.0"
+if [ -f "$file_data_lib" ]
+then
+	mount -t jffs2 /dev/mtdblock6 /var/volatile
+	if [ -f "$file_data_lib_sh" ]
+	then
+		cp /data/lib/* /var/volatile/lib/
+		rm /var/volatile/data_lib.sh
+		umount /var/volatile
+		mount -t jffs2 /dev/mtdblock6 /data
+	else
+		umount /var/volatile
+		mount -t jffs2 /dev/mtdblock6 /data
+	fi
+fi
+
 # Start all init scripts in /etc/rcS.d and /etc/rc5.d
 # executing them in numerical order.
 #
