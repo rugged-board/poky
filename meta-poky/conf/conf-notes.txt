@@ -1,12 +1,24 @@
-
-### Shell environment set up for builds. ###
+### Welcome to the RUGGED BOARD A5D2x BSP-Yocto buildsystem.. ###
 
 You can now run 'bitbake <target>'
 
-Common targets are:
+for rugged board a5d2x(SDCARD)
+    change machine name to "rugged-board-a5d2x-sd1" in conf/local.conf
+
+    $ bitbake rb-sd-core-image-minimal
+
+for rugged board a5d2x(NOR)
+    change machine name to "rugged-board-a5d2x" in conf/local.conf
+
+    $ bitbake rb-nor-core-image-minimal
+
+Common targets are below:
     core-image-minimal
     core-image-sato
     meta-toolchain
     meta-ide-support
 
-You can also run generated qemu images with a command like 'runqemu qemux86'
+▛▀▖              ▌ ▛▀▖           ▌ ▞▀▖▛▀▘  ▌▞▀▖
+▙▄▘▌ ▌▞▀▌▞▀▌▞▀▖▞▀▌ ▙▄▘▞▀▖▝▀▖▙▀▖▞▀▌ ▙▄▌▙▄ ▞▀▌ ▗▘▚▗▘
+▌▚ ▌ ▌▚▄▌▚▄▌▛▀ ▌ ▌ ▌ ▌▌ ▌▞▀▌▌  ▌ ▌ ▌ ▌▖ ▌▌ ▌▗▘ ▗▚
+▘ ▘▝▀▘▗▄▘▗▄▘▝▀▘▝▀▘ ▀▀ ▝▀ ▝▀▘▘  ▝▀▘ ▘ ▘▝▀ ▝▀▘▀▀▘▘ ▘

@@ -14,28 +14,14 @@
 #
 # Machine Selection
 #
-# You need to select a specific machine to target the build with. There are a selection
-# of emulated machines available which can boot and run in the QEMU emulator:
-#
-#MACHINE ?= "qemuarm"
-#MACHINE ?= "qemuarm64"
-#MACHINE ?= "qemumips"
-#MACHINE ?= "qemumips64"
-#MACHINE ?= "qemuppc"
-#MACHINE ?= "qemux86"
-#MACHINE ?= "qemux86-64"
-#
-# There are also the following hardware board target machines included for 
+# You need to select a specific hardware board target machines included for 
 # demonstration purposes:
+# Below machine is for rugged-board-a5d2x(SDCARD Flash)
+
+#MACHINE ?= "rugged-board-a5d2x-sd1"
 #
-#MACHINE ?= "beaglebone-yocto"
-#MACHINE ?= "genericx86"
-#MACHINE ?= "genericx86-64"
-#MACHINE ?= "mpc8315e-rdb"
-#MACHINE ?= "edgerouter"
-#
-# This sets the default machine to be qemux86 if no other machine is selected:
-MACHINE ??= "qemux86"
+# This sets the default machine to be rugged-board-a5d2x(NOR Flash) if no other machine is selected:
+MACHINE ??= "rugged-board-a5d2x"
 
 #
 # Where to place downloads
@@ -86,7 +72,7 @@ MACHINE ??= "qemux86"
 # Ultimately when creating custom policy, people will likely end up subclassing 
 # these defaults.
 #
-DISTRO ?= "poky"
+DISTRO ?= "poky-tiny"
 # As an example of a subclass there is a "bleeding" edge policy configuration
 # where many versions are set to the absolute latest code from the upstream 
 # source control systems. This is just mentioned here as an example, its not
@@ -241,7 +227,10 @@ PACKAGECONFIG_append_pn-qemu-native = " sdl"
 PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 #ASSUME_PROVIDED += "libsdl-native"
 
+export PYTHONDONTWRITEBYTECODE="0"
+INCLUDE_PYCS=""
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
+IMAGE_INSTALL_append = ""
