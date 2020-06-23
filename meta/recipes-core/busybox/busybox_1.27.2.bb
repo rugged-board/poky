@@ -39,6 +39,8 @@ SRC_URI = "http://www.busybox.net/downloads/busybox-${PV}.tar.bz2;name=tarball \
            file://syslog.cfg \
            file://inittab \
            file://rcS \
+           file://banner \
+           file://resolv.conf \
            file://rcK \
            file://runlevel \
            file://makefile-libbb-race.patch \

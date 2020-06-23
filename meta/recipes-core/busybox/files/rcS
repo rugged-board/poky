@@ -21,6 +21,9 @@ then
 	fi
 fi
 
+# network service
+ifup eth0
+ifup lo
 # Start all init scripts in /etc/rcS.d and /etc/rc5.d
 # executing them in numerical order.
 #

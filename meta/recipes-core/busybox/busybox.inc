@@ -311,8 +311,12 @@ do_install () {
 	fi
         if grep "CONFIG_INIT=y" ${B}/.config; then
                 install -D -m 0777 ${WORKDIR}/rcS ${D}${sysconfdir}/init.d/rcS
+                install -D -m 0777 ${WORKDIR}/banner ${D}${sysconfdir}/init.d/banner
                 install -D -m 0777 ${WORKDIR}/rcK ${D}${sysconfdir}/init.d/rcK
                 install -D -m 0755 ${WORKDIR}/runlevel ${D}${base_sbindir}/runlevel
+                install -d ${D}/etc/network
+                install -D -m 0777 ${WORKDIR}/resolv.conf ${D}${sysconfdir}/resolv.conf
+                ln -sf /data/network/interfaces ${D}/etc/network/interfaces
         fi
 
     if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
